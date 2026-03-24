@@ -12,6 +12,10 @@ func index(c *gin.Context) {
 	c.HTML(http.StatusOK, "login.html", nil)
 }
 
+func app(c *gin.Context) {
+	c.HTML(http.StatusOK, "app.html", nil)
+}
+
 func main() {
 	godotenv.Overload()
 	
@@ -41,7 +45,7 @@ func main() {
 	router.POST("/signup", controller.SignUp)
 	router.POST("/login", controller.Login)
 	router.POST("/auth/google", controller.GoogleLogin)
-	router.GET("/todo", controller.Todo)
+	router.GET("/app", app)
 
 	router.Run(":8080" )
 
